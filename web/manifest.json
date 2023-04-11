@@ -1,6 +1,6 @@
 {
-    "name": "projeto_1",
-    "short_name": "projeto_1",
+    "name": "loja",
+    "short_name": "loja",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

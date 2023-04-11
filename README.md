@@ -1,4 +1,4 @@
-# projeto_1
+# loja
 
 A new Flutter project.
 

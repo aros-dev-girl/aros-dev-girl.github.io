@@ -1,4 +1,8 @@
 class AppRoutes {
-  static const inicio = '/';
-  static const membroDetalhe = '/membro_detalhe_pg';
+  static const authOrHome = '/';
+  static const productDetail = '/product-detail';
+  static const cart = '/cart';
+  static const orders = '/orders';
+  static const products = '/products';
+  static const productForm = '/product-form';
 }
