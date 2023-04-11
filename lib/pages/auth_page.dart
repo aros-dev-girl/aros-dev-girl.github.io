@@ -52,7 +52,7 @@ class AuthPage extends StatelessWidget {
                         ],
                       ),
                       child: const Text(
-                        'Minha Loja',
+                        'T-ARA',
                         style: TextStyle(
                           fontSize: 45,
                           fontFamily: 'Anton',
