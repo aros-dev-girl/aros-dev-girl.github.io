@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tiara/exceptions/http_exception.dart';
 import 'package:tiara/models/product.dart';
 import 'package:tiara/models/product_list.dart';
-import 'package:tiara/utils/app_routes.dart';
+import 'package:tiara/utilitarios/app_rotas.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -30,7 +30,7 @@ class ProductItem extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               onPressed: () {
                 Navigator.of(context).pushNamed(
-                  AppRoutes.productForm,
+                  AppRotas.productForm,
                   arguments: product,
                 );
               },

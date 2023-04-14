@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/models/auth.dart';
-import 'package:tiara/pages/auth_page.dart';
-import 'package:tiara/pages/products_overview_page.dart';
+import 'package:tiara/paginas/login_page.dart';
+import 'package:tiara/paginas/products_overview_page.dart';
 
-class AuthOrHomePage extends StatelessWidget {
-  const AuthOrHomePage({Key? key}) : super(key: key);
+class loginOuHomePage extends StatelessWidget {
+  const loginOuHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Auth auth = Provider.of(context);
-    // return auth.isAuth ? const ProductsOverviewPage() : const AuthPage();
     return FutureBuilder(
       future: auth.tryAutoLogin(),
       builder: (ctx, snapshot) {
@@ -21,7 +20,7 @@ class AuthOrHomePage extends StatelessWidget {
             child: Text('Ocorreu um erro!'),
           );
         } else {
-          return auth.isAuth ? const ProductsOverviewPage() : const AuthPage();
+          return auth.isAuth ? const ProductsOverviewPage() : const LoginPage();
         }
       },
     );

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tiara/exceptions/http_exception.dart';
 import 'package:tiara/models/product.dart';
-import 'package:tiara/utils/constants.dart';
+import 'package:tiara/utilitarios/Constantes.dart';
 
 class ProductList with ChangeNotifier {
   final String _token;
@@ -29,13 +29,13 @@ class ProductList with ChangeNotifier {
     _items.clear();
 
     final response = await http.get(
-      Uri.parse('${Constants.productBaseUrl}.json?auth=$_token'),
+      Uri.parse('${Constantes.productBaseUrl}.json?auth=$_token'),
     );
     if (response.body == 'null') return;
 
     final favResponse = await http.get(
       Uri.parse(
-        '${Constants.userFavoritesUrl}/$_userId.json?auth=$_token',
+        '${Constantes.userFavoritesUrl}/$_userId.json?auth=$_token',
       ),
     );
 
@@ -79,7 +79,7 @@ class ProductList with ChangeNotifier {
 
   Future<void> addProduct(Product product) async {
     final response = await http.post(
-      Uri.parse('${Constants.productBaseUrl}.json?auth=$_token'),
+      Uri.parse('${Constantes.productBaseUrl}.json?auth=$_token'),
       body: jsonEncode(
         {
           "name": product.name,
@@ -107,7 +107,7 @@ class ProductList with ChangeNotifier {
     if (index >= 0) {
       await http.patch(
         Uri.parse(
-            '${Constants.productBaseUrl}/${product.id}.json?auth=$_token'),
+            '${Constantes.productBaseUrl}/${product.id}.json?auth=$_token'),
         body: jsonEncode(
           {
             "name": product.name,
@@ -133,7 +133,7 @@ class ProductList with ChangeNotifier {
 
       final response = await http.delete(
         Uri.parse(
-            '${Constants.productBaseUrl}/${product.id}.json?auth=$_token'),
+            '${Constantes.productBaseUrl}/${product.id}.json?auth=$_token'),
       );
 
       if (response.statusCode >= 400) {

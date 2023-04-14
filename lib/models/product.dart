@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tiara/utils/constants.dart';
+import 'package:tiara/utilitarios/Constantes.dart';
 
 class Product with ChangeNotifier {
   final String id;
@@ -32,7 +32,7 @@ class Product with ChangeNotifier {
 
       final response = await http.put(
         Uri.parse(
-          '${Constants.userFavoritesUrl}/$userId/$id.json?auth=$token',
+          '${Constantes.userFavoritesUrl}/$userId/$id.json?auth=$token',
         ),
         body: jsonEncode(isFavorite),
       );

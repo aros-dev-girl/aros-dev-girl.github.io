@@ -5,7 +5,7 @@ import 'package:tiara/components/badge.dart';
 import 'package:tiara/components/product_grid.dart';
 import 'package:tiara/models/cart.dart';
 import 'package:tiara/models/product_list.dart';
-import 'package:tiara/utils/app_routes.dart';
+import 'package:tiara/utilitarios/app_rotas.dart';
 
 enum FilterOptions {
   favorite,
@@ -67,7 +67,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
           Consumer<Cart>(
             child: IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.cart);
+                Navigator.of(context).pushNamed(AppRotas.cart);
               },
               icon: const Icon(Icons.shopping_cart),
             ),

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tiara/models/auth.dart';
 import 'package:tiara/models/cart.dart';
 import 'package:tiara/models/product.dart';
-import 'package:tiara/utils/app_routes.dart';
+import 'package:tiara/utilitarios/app_rotas.dart';
 
 class ProductGridItem extends StatelessWidget {
   const ProductGridItem({Key? key}) : super(key: key);
@@ -73,7 +73,7 @@ class ProductGridItem extends StatelessWidget {
           // ),
           onTap: () {
             Navigator.of(context).pushNamed(
-              AppRoutes.productDetail,
+              AppRotas.productDetail,
               arguments: product,
             );
           },

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:tiara/models/cart.dart';
 import 'package:tiara/models/cart_item.dart';
 import 'package:tiara/models/order.dart';
-import 'package:tiara/utils/constants.dart';
+import 'package:tiara/utilitarios/Constantes.dart';
 
 class OrderList with ChangeNotifier {
   final String _token;
@@ -29,7 +29,7 @@ class OrderList with ChangeNotifier {
     List<Order> items = [];
 
     final response = await http.get(
-      Uri.parse('${Constants.orderBaseUrl}/$_userId.json?auth=$_token'),
+      Uri.parse('${Constantes.orderBaseUrl}/$_userId.json?auth=$_token'),
     );
     if (response.body == 'null') return;
     Map<String, dynamic> data = jsonDecode(response.body);
@@ -60,7 +60,7 @@ class OrderList with ChangeNotifier {
     final date = DateTime.now();
 
     final response = await http.post(
-      Uri.parse('${Constants.orderBaseUrl}/$_userId.json?auth=$_token'),
+      Uri.parse('${Constantes.orderBaseUrl}/$_userId.json?auth=$_token'),
       body: jsonEncode(
         {
           'total': cart.totalAmount,

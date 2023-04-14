@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tiara/data/store.dart';
 import 'package:tiara/exceptions/auth_exception.dart';
-import 'package:tiara/utils/constants.dart';
+import 'package:tiara/utilitarios/Constantes.dart';
 
 class Auth with ChangeNotifier {
   String? _token;
@@ -34,7 +34,7 @@ class Auth with ChangeNotifier {
   Future<void> _authenticate(
       String email, String password, String urlFragment) async {
     final url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:$urlFragment?key=${Constants.webApiKey}';
+        'https://identitytoolkit.googleapis.com/v1/accounts:$urlFragment?key=${Constantes.webApiKey}';
     final response = await http.post(
       Uri.parse(url),
       body: jsonEncode({

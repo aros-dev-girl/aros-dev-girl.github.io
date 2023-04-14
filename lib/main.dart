@@ -4,14 +4,14 @@ import 'package:tiara/models/auth.dart';
 import 'package:tiara/models/cart.dart';
 import 'package:tiara/models/order_list.dart';
 import 'package:tiara/models/product_list.dart';
-import 'package:tiara/pages/auth_or_home_page.dart';
-import 'package:tiara/pages/cart_page.dart';
-import 'package:tiara/pages/orders_page.dart';
-import 'package:tiara/pages/product_detail_page.dart';
-import 'package:tiara/pages/product_form_page.dart';
-import 'package:tiara/pages/products_page.dart';
-import 'package:tiara/utils/app_routes.dart';
-import 'package:tiara/utils/custom_route.dart';
+import 'package:tiara/paginas/login_ou_home_page.dart';
+import 'package:tiara/paginas/cart_page.dart';
+import 'package:tiara/paginas/orders_page.dart';
+import 'package:tiara/paginas/product_detail_page.dart';
+import 'package:tiara/paginas/product_form_page.dart';
+import 'package:tiara/paginas/products_page.dart';
+import 'package:tiara/utilitarios/app_rotas.dart';
+import 'package:tiara/utilitarios/custom_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,11 +52,11 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'T-ARA',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.purple,
-            secondary: Colors.deepOrange,
+            primary: const Color.fromRGBO(205, 0, 0, 1),
+            secondary: const Color.fromRGBO(238, 201, 0, 1),
           ),
           fontFamily: 'Lato',
           pageTransitionsTheme: PageTransitionsTheme(
@@ -66,14 +66,13 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        // home: const ProductsOverviewPage(),
         routes: {
-          AppRoutes.authOrHome: (ctx) => const AuthOrHomePage(),
-          AppRoutes.productDetail: (ctx) => const ProductDetailPage(),
-          AppRoutes.cart: (ctx) => const CartPage(),
-          AppRoutes.orders: (ctx) => const OrdersPage(),
-          AppRoutes.products: (ctx) => const ProductsPage(),
-          AppRoutes.productForm: (ctx) => const ProductFormPage(),
+          AppRotas.loginOuHome: (ctx) => const loginOuHomePage(),
+          AppRotas.productDetail: (ctx) => const ProductDetailPage(),
+          AppRotas.cart: (ctx) => const CartPage(),
+          AppRotas.orders: (ctx) => const OrdersPage(),
+          AppRotas.products: (ctx) => const ProductsPage(),
+          AppRotas.productForm: (ctx) => const ProductFormPage(),
         },
         debugShowCheckedModeBanner: false,
       ),

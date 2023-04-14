@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tiara/components/app_drawer.dart';
 import 'package:tiara/components/product_item.dart';
 import 'package:tiara/models/product_list.dart';
-import 'package:tiara/utils/app_routes.dart';
+import 'package:tiara/utilitarios/app_rotas.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class ProductsPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.productForm);
+              Navigator.of(context).pushNamed(AppRotas.productForm);
             },
           )
         ],

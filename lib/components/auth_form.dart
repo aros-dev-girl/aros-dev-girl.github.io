@@ -153,7 +153,14 @@ class _AuthFormState extends State<AuthForm>
           child: Column(
             children: [
               TextFormField(
-                decoration: const InputDecoration(labelText: 'E-mail'),
+                //decoration: const InputDecoration(labelText: 'E-mail'),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignLabelWithHint: true,
+                  labelText: 'E-mail',
+                ),
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (email) => _authData['email'] = email ?? '',
                 validator: (_email) {
@@ -165,7 +172,14 @@ class _AuthFormState extends State<AuthForm>
                 },
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Senha'),
+                //decoration: const InputDecoration(labelText: 'Senha'),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignLabelWithHint: true,
+                  labelText: 'Senha',
+                ),
                 keyboardType: TextInputType.emailAddress,
                 obscureText: true,
                 controller: _passwordController,
@@ -190,8 +204,14 @@ class _AuthFormState extends State<AuthForm>
                   child: SlideTransition(
                     position: _slideAnimation!,
                     child: TextFormField(
-                      decoration:
-                          const InputDecoration(labelText: 'Confirmar Senha'),
+                      //decoration: const InputDecoration(labelText: 'Confirmar Senha'),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        alignLabelWithHint: true,
+                        labelText: 'Confirmar Senha',
+                      ),
                       keyboardType: TextInputType.emailAddress,
                       obscureText: true,
                       validator: _isLogin()

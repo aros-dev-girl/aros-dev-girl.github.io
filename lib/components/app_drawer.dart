@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/models/auth.dart';
-import 'package:tiara/pages/orders_page.dart';
-import 'package:tiara/utils/app_routes.dart';
-import 'package:tiara/utils/custom_route.dart';
+import 'package:tiara/paginas/orders_page.dart';
+import 'package:tiara/utilitarios/app_rotas.dart';
+import 'package:tiara/utilitarios/custom_route.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class AppDrawer extends StatelessWidget {
             title: const Text('T-ARA'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(
-                AppRoutes.authOrHome,
+                AppRotas.loginOuHome,
               );
             },
           ),
@@ -33,7 +33,7 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Pedidos'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(
-                AppRoutes.orders,
+                AppRotas.orders,
               );
               // Navigator.of(context).pushReplacement(
               //   CustomRoute(builder: (ctx) => const OrdersPage()),
@@ -46,7 +46,7 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Gerenciar Produtos'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(
-                AppRoutes.products,
+                AppRotas.products,
               );
             },
           ),
@@ -60,7 +60,7 @@ class AppDrawer extends StatelessWidget {
                 listen: false,
               ).logout();
               Navigator.of(context).pushReplacementNamed(
-                AppRoutes.authOrHome,
+                AppRotas.loginOuHome,
               );
             },
           ),
