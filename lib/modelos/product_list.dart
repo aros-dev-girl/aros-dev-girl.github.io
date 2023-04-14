@@ -3,16 +3,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tiara/exceptions/http_exception.dart';
-import 'package:tiara/models/product.dart';
+import 'package:tiara/modelos/membro.dart';
 import 'package:tiara/utilitarios/Constantes.dart';
 
 class ProductList with ChangeNotifier {
   final String _token;
   final String _userId;
-  List<Product> _items = [];
+  List<Membro> _items = [];
 
-  List<Product> get items => [..._items];
-  List<Product> get favoriteItems =>
+  List<Membro> get items => [..._items];
+  List<Membro> get favoriteItems =>
       _items.where((prod) => prod.isFavorite).toList();
 
   ProductList([
@@ -46,9 +46,9 @@ class ProductList with ChangeNotifier {
     data.forEach((productId, productData) {
       final isFavorite = favData[productId] ?? false;
       _items.add(
-        Product(
+        Membro(
           id: productId,
-          name: productData['name'],
+          nomeArtistico: productData['name'],
           description: productData['description'],
           price: productData['price'],
           imageUrl: productData['imageUrl'],
@@ -62,9 +62,9 @@ class ProductList with ChangeNotifier {
   Future<void> saveProduct(Map<String, Object> data) {
     bool hasId = data['id'] != null;
 
-    final product = Product(
+    final product = Membro(
       id: hasId ? data['id'] as String : Random().nextDouble().toString(),
-      name: data['name'] as String,
+      nomeArtistico: data['name'] as String,
       description: data['description'] as String,
       price: data['price'] as double,
       imageUrl: data['imageUrl'] as String,
@@ -77,12 +77,12 @@ class ProductList with ChangeNotifier {
     }
   }
 
-  Future<void> addProduct(Product product) async {
+  Future<void> addProduct(Membro product) async {
     final response = await http.post(
       Uri.parse('${Constantes.productBaseUrl}.json?auth=$_token'),
       body: jsonEncode(
         {
-          "name": product.name,
+          "name": product.nomeArtistico,
           "description": product.description,
           "price": product.price,
           "imageUrl": product.imageUrl,
@@ -91,9 +91,9 @@ class ProductList with ChangeNotifier {
     );
 
     final id = jsonDecode(response.body)['name'];
-    _items.add(Product(
+    _items.add(Membro(
       id: id,
-      name: product.name,
+      nomeArtistico: product.nomeArtistico,
       description: product.description,
       price: product.price,
       imageUrl: product.imageUrl,
@@ -101,7 +101,7 @@ class ProductList with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateProduct(Product product) async {
+  Future<void> updateProduct(Membro product) async {
     int index = _items.indexWhere((p) => p.id == product.id);
 
     if (index >= 0) {
@@ -110,7 +110,7 @@ class ProductList with ChangeNotifier {
             '${Constantes.productBaseUrl}/${product.id}.json?auth=$_token'),
         body: jsonEncode(
           {
-            "name": product.name,
+            "nomeArtistico": product.nomeArtistico,
             "description": product.description,
             "price": product.price,
             "imageUrl": product.imageUrl,
@@ -123,7 +123,7 @@ class ProductList with ChangeNotifier {
     }
   }
 
-  Future<void> removeProduct(Product product) async {
+  Future<void> removeProduct(Membro product) async {
     int index = _items.indexWhere((p) => p.id == product.id);
 
     if (index >= 0) {

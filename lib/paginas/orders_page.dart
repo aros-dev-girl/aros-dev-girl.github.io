@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/componentes/app_drawer.dart';
 import 'package:tiara/componentes/order.dart';
-import 'package:tiara/models/order_list.dart';
+import 'package:tiara/modelos/order_list.dart';
 
 class OrdersPage extends StatelessWidget {
   const OrdersPage({Key? key}) : super(key: key);

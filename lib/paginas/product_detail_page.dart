@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:tiara/models/product.dart';
+import 'package:tiara/modelos/membro.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final Product product =
-        ModalRoute.of(context)!.settings.arguments as Product;
+    final Membro product = ModalRoute.of(context)!.settings.arguments as Membro;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -15,7 +14,7 @@ class ProductDetailPage extends StatelessWidget {
             expandedHeight: 300,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(product.name),
+              title: Text(product.nomeArtistico),
               background: Stack(
                 fit: StackFit.expand,
                 children: [

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/models/auth.dart';
-import 'package:tiara/models/cart.dart';
-import 'package:tiara/models/order_list.dart';
-import 'package:tiara/models/product_list.dart';
+import 'package:tiara/modelos/login.dart';
+import 'package:tiara/modelos/cart.dart';
+import 'package:tiara/modelos/order_list.dart';
+import 'package:tiara/modelos/product_list.dart';
 import 'package:tiara/paginas/login_ou_home_page.dart';
 import 'package:tiara/paginas/cart_page.dart';
 import 'package:tiara/paginas/orders_page.dart';
@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => Auth(),
+          create: (_) => Login(),
         ),
-        ChangeNotifierProxyProvider<Auth, ProductList>(
+        ChangeNotifierProxyProvider<Login, ProductList>(
           create: (_) => ProductList(),
           update: (ctx, auth, previous) {
             return ProductList(
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             );
           },
         ),
-        ChangeNotifierProxyProvider<Auth, OrderList>(
+        ChangeNotifierProxyProvider<Login, OrderList>(
           create: (_) => OrderList(),
           update: (ctx, auth, previous) {
             return OrderList(

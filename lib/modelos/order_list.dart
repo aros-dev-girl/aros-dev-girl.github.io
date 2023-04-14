@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tiara/models/cart.dart';
-import 'package:tiara/models/cart_item.dart';
-import 'package:tiara/models/order.dart';
+import 'package:tiara/modelos/cart.dart';
+import 'package:tiara/modelos/cart_item.dart';
+import 'package:tiara/modelos/order.dart';
 import 'package:tiara/utilitarios/Constantes.dart';
 
 class OrderList with ChangeNotifier {

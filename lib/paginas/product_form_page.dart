@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/models/product.dart';
-import 'package:tiara/models/product_list.dart';
+import 'package:tiara/modelos/membro.dart';
+import 'package:tiara/modelos/product_list.dart';
 
 class ProductFormPage extends StatefulWidget {
   const ProductFormPage({Key? key}) : super(key: key);
@@ -36,9 +36,9 @@ class _ProductFormPageState extends State<ProductFormPage> {
       final arg = ModalRoute.of(context)?.settings.arguments;
 
       if (arg != null) {
-        final product = arg as Product;
+        final product = arg as Membro;
         _formData['id'] = product.id;
-        _formData['name'] = product.name;
+        _formData['nomeArtistico'] = product.nomeArtistico;
         _formData['price'] = product.price;
         _formData['description'] = product.description;
         _formData['imageUrl'] = product.imageUrl;

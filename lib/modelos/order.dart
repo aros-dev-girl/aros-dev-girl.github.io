@@ -1,4 +1,4 @@
-import 'package:tiara/models/cart_item.dart';
+import 'package:tiara/modelos/cart_item.dart';
 
 class Order {
   final String id;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/componentes/cart_item.dart';
-import 'package:tiara/models/cart.dart';
-import 'package:tiara/models/order_list.dart';
+import 'package:tiara/modelos/cart.dart';
+import 'package:tiara/modelos/order_list.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);

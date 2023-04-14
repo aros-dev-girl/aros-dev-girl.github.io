@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/exceptions/auth_exception.dart';
-import 'package:tiara/models/auth.dart';
+import 'package:tiara/modelos/login.dart';
 
 enum AuthMode { signup, login }
 
@@ -106,7 +106,7 @@ class _LoginFormState extends State<LoginForm>
     setState(() => _isLoading = true);
 
     _formKey.currentState?.save();
-    Auth auth = Provider.of(context, listen: false);
+    Login auth = Provider.of(context, listen: false);
 
     try {
       if (_isLogin()) {

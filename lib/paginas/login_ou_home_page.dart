@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/models/auth.dart';
+import 'package:tiara/modelos/login.dart';
 import 'package:tiara/paginas/login_page.dart';
 import 'package:tiara/paginas/products_overview_page.dart';
 
@@ -9,7 +9,7 @@ class loginOuHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth auth = Provider.of(context);
+    Login auth = Provider.of(context);
     return FutureBuilder(
       future: auth.tryAutoLogin(),
       builder: (ctx, snapshot) {

@@ -7,7 +7,7 @@ import 'package:tiara/data/store.dart';
 import 'package:tiara/exceptions/auth_exception.dart';
 import 'package:tiara/utilitarios/Constantes.dart';
 
-class Auth with ChangeNotifier {
+class Login with ChangeNotifier {
   String? _token;
   String? _email;
   String? _userId;

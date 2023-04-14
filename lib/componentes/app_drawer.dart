@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/models/auth.dart';
+import 'package:tiara/modelos/login.dart';
 import 'package:tiara/paginas/orders_page.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 import 'package:tiara/utilitarios/custom_route.dart';
@@ -55,7 +55,7 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.exit_to_app),
             title: const Text('Sair'),
             onTap: () {
-              Provider.of<Auth>(
+              Provider.of<Login>(
                 context,
                 listen: false,
               ).logout();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/componentes/product_grid_item.dart';
-import 'package:tiara/models/product.dart';
-import 'package:tiara/models/product_list.dart';
+import 'package:tiara/modelos/membro.dart';
+import 'package:tiara/modelos/product_list.dart';
 
 class ProductGrid extends StatelessWidget {
   final bool showFavoriteOnly;
@@ -12,7 +12,7 @@ class ProductGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ProductList>(context);
-    final List<Product> loadedProducts =
+    final List<Membro> loadedProducts =
         showFavoriteOnly ? provider.favoriteItems : provider.items;
 
     return GridView.builder(

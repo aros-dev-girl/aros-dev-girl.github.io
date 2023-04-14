@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tiara/utilitarios/Constantes.dart';
 
-class Product with ChangeNotifier {
+class Membro with ChangeNotifier {
   final String id;
-  final String name;
+  final String nomeArtistico;
   final String description;
   final double price;
   final String imageUrl;
   bool isFavorite;
 
-  Product({
+  Membro({
     required this.id,
-    required this.name,
+    required this.nomeArtistico,
     required this.description,
     required this.price,
     required this.imageUrl,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/componentes/app_drawer.dart';
 import 'package:tiara/componentes/product_item.dart';
-import 'package:tiara/models/product_list.dart';
+import 'package:tiara/modelos/product_list.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
 class ProductsPage extends StatelessWidget {

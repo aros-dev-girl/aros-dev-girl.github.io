@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:tiara/componentes/app_drawer.dart';
 import 'package:tiara/componentes/badge.dart';
 import 'package:tiara/componentes/product_grid.dart';
-import 'package:tiara/models/cart.dart';
-import 'package:tiara/models/product_list.dart';
+import 'package:tiara/modelos/cart.dart';
+import 'package:tiara/modelos/product_list.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
 enum FilterOptions {

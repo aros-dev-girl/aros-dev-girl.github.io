@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:tiara/models/cart_item.dart';
-import 'package:tiara/models/product.dart';
+import 'package:tiara/modelos/cart_item.dart';
+import 'package:tiara/modelos/membro.dart';
 
 class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {};
@@ -22,7 +22,7 @@ class Cart with ChangeNotifier {
     return total;
   }
 
-  void addItem(Product product) {
+  void addItem(Membro product) {
     if (_items.containsKey(product.id)) {
       _items.update(
         product.id,
@@ -40,7 +40,7 @@ class Cart with ChangeNotifier {
         () => CartItem(
           id: Random().nextDouble().toString(),
           productId: product.id,
-          name: product.name,
+          name: product.nomeArtistico,
           quantity: 1,
           price: product.price,
         ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/exceptions/http_exception.dart';
-import 'package:tiara/models/product.dart';
-import 'package:tiara/models/product_list.dart';
+import 'package:tiara/modelos/membro.dart';
+import 'package:tiara/modelos/product_list.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
 class ProductItem extends StatelessWidget {
-  final Product product;
+  final Membro product;
 
   const ProductItem(
     this.product, {
@@ -20,7 +20,7 @@ class ProductItem extends StatelessWidget {
       leading: CircleAvatar(
         backgroundImage: NetworkImage(product.imageUrl),
       ),
-      title: Text(product.name),
+      title: Text(product.nomeArtistico),
       trailing: SizedBox(
         width: 100,
         child: Row(
