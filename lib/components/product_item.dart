@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/exceptions/http_exception.dart';
-import 'package:shop/models/product.dart';
-import 'package:shop/models/product_list.dart';
-import 'package:shop/utils/app_routes.dart';
+import 'package:tiara/exceptions/http_exception.dart';
+import 'package:tiara/models/product.dart';
+import 'package:tiara/models/product_list.dart';
+import 'package:tiara/utils/app_routes.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;

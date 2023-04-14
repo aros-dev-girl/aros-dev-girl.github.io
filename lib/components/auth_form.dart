@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/exceptions/auth_exception.dart';
-import 'package:shop/models/auth.dart';
+import 'package:tiara/exceptions/auth_exception.dart';
+import 'package:tiara/models/auth.dart';
 
 enum AuthMode { signup, login }
 

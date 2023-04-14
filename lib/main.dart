@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/models/auth.dart';
-import 'package:shop/models/cart.dart';
-import 'package:shop/models/order_list.dart';
-import 'package:shop/models/product_list.dart';
-import 'package:shop/pages/auth_or_home_page.dart';
-import 'package:shop/pages/cart_page.dart';
-import 'package:shop/pages/orders_page.dart';
-import 'package:shop/pages/product_detail_page.dart';
-import 'package:shop/pages/product_form_page.dart';
-import 'package:shop/pages/products_page.dart';
-import 'package:shop/utils/app_routes.dart';
-import 'package:shop/utils/custom_route.dart';
+import 'package:tiara/models/auth.dart';
+import 'package:tiara/models/cart.dart';
+import 'package:tiara/models/order_list.dart';
+import 'package:tiara/models/product_list.dart';
+import 'package:tiara/pages/auth_or_home_page.dart';
+import 'package:tiara/pages/cart_page.dart';
+import 'package:tiara/pages/orders_page.dart';
+import 'package:tiara/pages/product_detail_page.dart';
+import 'package:tiara/pages/product_form_page.dart';
+import 'package:tiara/pages/products_page.dart';
+import 'package:tiara/utils/app_routes.dart';
+import 'package:tiara/utils/custom_route.dart';
 
 void main() {
   runApp(const MyApp());

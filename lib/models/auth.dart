@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:shop/data/store.dart';
-import 'package:shop/exceptions/auth_exception.dart';
-import 'package:shop/utils/constants.dart';
+import 'package:tiara/data/store.dart';
+import 'package:tiara/exceptions/auth_exception.dart';
+import 'package:tiara/utils/constants.dart';
 
 class Auth with ChangeNotifier {
   String? _token;
