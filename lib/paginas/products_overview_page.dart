@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/components/app_drawer.dart';
-import 'package:tiara/components/badge.dart';
-import 'package:tiara/components/product_grid.dart';
+import 'package:tiara/componentes/app_drawer.dart';
+import 'package:tiara/componentes/badge.dart';
+import 'package:tiara/componentes/product_grid.dart';
 import 'package:tiara/models/cart.dart';
 import 'package:tiara/models/product_list.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
@@ -40,7 +40,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('T-ARA'),
+        title: const Text('T👑ARA'),
         actions: [
           PopupMenuButton(
             icon: const Icon(Icons.more_vert),

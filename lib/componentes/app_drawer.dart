@@ -20,7 +20,7 @@ class AppDrawer extends StatelessWidget {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.shop),
-            title: const Text('T-ARA'),
+            title: const Text('T👑ARA'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(
                 AppRotas.loginOuHome,

@@ -5,14 +5,14 @@ import 'package:tiara/models/auth.dart';
 
 enum AuthMode { signup, login }
 
-class AuthForm extends StatefulWidget {
-  const AuthForm({Key? key}) : super(key: key);
+class LoginForm extends StatefulWidget {
+  const LoginForm({Key? key}) : super(key: key);
 
   @override
-  State<AuthForm> createState() => _AuthFormState();
+  State<LoginForm> createState() => _LoginFormState();
 }
 
-class _AuthFormState extends State<AuthForm>
+class _LoginFormState extends State<LoginForm>
     with SingleTickerProviderStateMixin {
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -60,8 +60,6 @@ class _AuthFormState extends State<AuthForm>
         curve: Curves.linear,
       ),
     );
-
-    // _heightAnimation?.addListener(() => setState(() {}));
   }
 
   @override
@@ -145,15 +143,13 @@ class _AuthFormState extends State<AuthForm>
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
         padding: const EdgeInsets.all(16),
-        height: _isLogin() ? 310 : 400,
-        // height: _heightAnimation?.value.height ?? (_isLogin() ? 310 : 400),
+        height: _isLogin() ? 300 : 560,
         width: deviceSize.width * 0.75,
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               TextFormField(
-                //decoration: const InputDecoration(labelText: 'E-mail'),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -171,8 +167,8 @@ class _AuthFormState extends State<AuthForm>
                   return null;
                 },
               ),
+              const SizedBox(height: 15),
               TextFormField(
-                //decoration: const InputDecoration(labelText: 'Senha'),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -192,10 +188,11 @@ class _AuthFormState extends State<AuthForm>
                   return null;
                 },
               ),
+              const SizedBox(height: 15),
               AnimatedContainer(
                 constraints: BoxConstraints(
-                  minHeight: _isLogin() ? 0 : 60,
-                  maxHeight: _isLogin() ? 0 : 120,
+                  minHeight: _isLogin() ? 0 : 50,
+                  maxHeight: _isLogin() ? 0 : 60,
                 ),
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.linear,
@@ -204,7 +201,6 @@ class _AuthFormState extends State<AuthForm>
                   child: SlideTransition(
                     position: _slideAnimation!,
                     child: TextFormField(
-                      //decoration: const InputDecoration(labelText: 'Confirmar Senha'),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),

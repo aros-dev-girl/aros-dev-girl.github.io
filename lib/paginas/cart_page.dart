@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/components/cart_item.dart';
+import 'package:tiara/componentes/cart_item.dart';
 import 'package:tiara/models/cart.dart';
 import 'package:tiara/models/order_list.dart';
 

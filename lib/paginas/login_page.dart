@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tiara/components/auth_form.dart';
+import 'package:tiara/componentes/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                         image: AssetImage('assets/images/logo.png'),
                       ),
                     ),
-                    const AuthForm(),
+                    const LoginForm(),
                   ],
                 ),
               ),
