@@ -54,7 +54,7 @@ class CartItemWidget extends StatelessWidget {
         Provider.of<Cart>(
           context,
           listen: false,
-        ).removeItem(cartItem.productId);
+        ).removeItem(cartItem.membroId);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(

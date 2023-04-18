@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/modelos/login.dart';
 import 'package:tiara/paginas/login_page.dart';
-import 'package:tiara/paginas/products_overview_page.dart';
+import 'package:tiara/paginas/barra_titulo_superior.dart';
 
 class loginOuHomePage extends StatelessWidget {
   const loginOuHomePage({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class loginOuHomePage extends StatelessWidget {
             child: Text('Ocorreu um erro!'),
           );
         } else {
-          return auth.isAuth ? const ProductsOverviewPage() : const LoginPage();
+          return auth.isAuth ? const BarraTituloSuperior() : const LoginPage();
         }
       },
     );

@@ -5,12 +5,12 @@ import 'package:tiara/modelos/cart.dart';
 import 'package:tiara/modelos/membro.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
-class ProductGridItem extends StatelessWidget {
-  const ProductGridItem({Key? key}) : super(key: key);
+class MembroGridItem extends StatelessWidget {
+  const MembroGridItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Membro>(context, listen: false);
+    final membro = Provider.of<Membro>(context, listen: false);
     final cart = Provider.of<Cart>(context, listen: false);
     final auth = Provider.of<Login>(context, listen: false);
 
@@ -20,20 +20,20 @@ class ProductGridItem extends StatelessWidget {
         footer: GridTileBar(
           backgroundColor: Colors.black87,
           leading: Consumer<Membro>(
-            builder: (ctx, product, _) => IconButton(
+            builder: (ctx, membro, _) => IconButton(
               onPressed: () {
-                product.toggleFavorite(
+                membro.toggleFavorite(
                   auth.token ?? '',
                   auth.userId ?? '',
                 );
               },
               icon: Icon(
-                  product.isFavorite ? Icons.favorite : Icons.favorite_border),
+                  membro.isFavorite ? Icons.favorite : Icons.favorite_border),
               color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           title: Text(
-            product.nomeArtistico,
+            membro.nomeArtistico,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
@@ -48,33 +48,33 @@ class ProductGridItem extends StatelessWidget {
                   action: SnackBarAction(
                     label: 'DESFAZER',
                     onPressed: () {
-                      cart.removeSingleItem(product.id);
+                      cart.removeSingleItem(membro.id);
                     },
                   ),
                 ),
               );
-              cart.addItem(product);
+              cart.addItem(membro);
             },
           ),
         ),
         child: GestureDetector(
           child: Hero(
-            tag: product.id,
+            tag: membro.id,
             child: FadeInImage(
               placeholder:
-                  const AssetImage('assets/images/product-placeholder.png'),
-              image: NetworkImage(product.imageUrl),
+                  const AssetImage('assets/images/membro-placeholder.png'),
+              image: NetworkImage(membro.imageUrl),
               fit: BoxFit.cover,
             ),
           ),
           // child: Image.network(
-          //   product.imageUrl,
+          //   membro.imageUrl,
           //   fit: BoxFit.cover,
           // ),
           onTap: () {
             Navigator.of(context).pushNamed(
-              AppRotas.productDetail,
-              arguments: product,
+              AppRotas.membroDetail,
+              arguments: membro,
             );
           },
         ),

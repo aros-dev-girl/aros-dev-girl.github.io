@@ -22,13 +22,13 @@ class Cart with ChangeNotifier {
     return total;
   }
 
-  void addItem(Membro product) {
-    if (_items.containsKey(product.id)) {
+  void addItem(Membro membro) {
+    if (_items.containsKey(membro.id)) {
       _items.update(
-        product.id,
+        membro.id,
         (existingItem) => CartItem(
           id: existingItem.id,
-          productId: existingItem.productId,
+          membroId: existingItem.membroId,
           name: existingItem.name,
           quantity: existingItem.quantity + 1,
           price: existingItem.price,
@@ -36,37 +36,37 @@ class Cart with ChangeNotifier {
       );
     } else {
       _items.putIfAbsent(
-        product.id,
+        membro.id,
         () => CartItem(
           id: Random().nextDouble().toString(),
-          productId: product.id,
-          name: product.nomeArtistico,
+          membroId: membro.id,
+          name: membro.nomeArtistico,
           quantity: 1,
-          price: product.price,
+          price: membro.altura,
         ),
       );
     }
     notifyListeners();
   }
 
-  void removeItem(String productId) {
-    _items.remove(productId);
+  void removeItem(String membroId) {
+    _items.remove(membroId);
     notifyListeners();
   }
 
-  void removeSingleItem(String productId) {
-    if (!_items.containsKey(productId)) {
+  void removeSingleItem(String membroId) {
+    if (!_items.containsKey(membroId)) {
       return;
     }
 
-    if (_items[productId]?.quantity == 1) {
-      _items.remove(productId);
+    if (_items[membroId]?.quantity == 1) {
+      _items.remove(membroId);
     } else {
       _items.update(
-        productId,
+        membroId,
         (existingItem) => CartItem(
           id: existingItem.id,
-          productId: existingItem.productId,
+          membroId: existingItem.membroId,
           name: existingItem.name,
           quantity: existingItem.quantity - 1,
           price: existingItem.price,

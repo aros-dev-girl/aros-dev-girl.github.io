@@ -19,7 +19,7 @@ class _OrderWidgetState extends State<OrderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final double itemsHeight = (widget.order.products.length * 24) + 10;
+    final double itemsHeight = (widget.order.membros.length * 24) + 10;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
@@ -49,20 +49,20 @@ class _OrderWidgetState extends State<OrderWidget> {
                 vertical: 4,
               ),
               child: ListView(
-                children: widget.order.products.map(
-                  (product) {
+                children: widget.order.membros.map(
+                  (membro) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          product.name,
+                          membro.name,
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          '${product.quantity}x R\$ ${product.price}',
+                          '${membro.quantity}x R\$ ${membro.price}',
                           style: const TextStyle(
                             fontSize: 18,
                             color: Colors.grey,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/componentes/app_drawer.dart';
+import 'package:tiara/componentes/menu_lateral.dart';
 import 'package:tiara/componentes/badge.dart';
-import 'package:tiara/componentes/product_grid.dart';
+import 'package:tiara/componentes/membro_grid.dart';
 import 'package:tiara/modelos/cart.dart';
-import 'package:tiara/modelos/product_list.dart';
+import 'package:tiara/modelos/membro_lista.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
 enum FilterOptions {
@@ -12,21 +12,21 @@ enum FilterOptions {
   all,
 }
 
-class ProductsOverviewPage extends StatefulWidget {
-  const ProductsOverviewPage({Key? key}) : super(key: key);
+class BarraTituloSuperior extends StatefulWidget {
+  const BarraTituloSuperior({Key? key}) : super(key: key);
 
   @override
-  State<ProductsOverviewPage> createState() => _ProductsOverviewPageState();
+  State<BarraTituloSuperior> createState() => _BarraTituloSuperiorState();
 }
 
-class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
+class _BarraTituloSuperiorState extends State<BarraTituloSuperior> {
   bool _showFavoriteOnly = false;
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    Provider.of<ProductList>(
+    Provider.of<MembroLista>(
       context,
       listen: false,
     ).loadProducts().then((value) {
@@ -64,7 +64,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
               });
             },
           ),
-          Consumer<Cart>(
+          /*Consumer<Cart>(
             child: IconButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(AppRotas.cart);
@@ -75,13 +75,13 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
               value: cart.itemsCount.toString(),
               child: child!,
             ),
-          ),
+          ),*/
         ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ProductGrid(_showFavoriteOnly),
-      drawer: const AppDrawer(),
+          : MembroGrid(_showFavoriteOnly),
+      drawer: const MenuLateral(),
     );
   }
 }

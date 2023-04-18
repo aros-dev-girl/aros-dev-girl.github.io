@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/componentes/product_grid_item.dart';
+import 'package:tiara/componentes/membro_grid_item.dart';
 import 'package:tiara/modelos/membro.dart';
-import 'package:tiara/modelos/product_list.dart';
+import 'package:tiara/modelos/membro_lista.dart';
 
-class ProductGrid extends StatelessWidget {
+class MembroGrid extends StatelessWidget {
   final bool showFavoriteOnly;
 
-  const ProductGrid(this.showFavoriteOnly, {Key? key}) : super(key: key);
+  const MembroGrid(this.showFavoriteOnly, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ProductList>(context);
+    final provider = Provider.of<MembroLista>(context);
     final List<Membro> loadedProducts =
         showFavoriteOnly ? provider.favoriteItems : provider.items;
 
@@ -20,7 +20,7 @@ class ProductGrid extends StatelessWidget {
       itemCount: loadedProducts.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
         value: loadedProducts[i],
-        child: const ProductGridItem(),
+        child: const MembroGridItem(),
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

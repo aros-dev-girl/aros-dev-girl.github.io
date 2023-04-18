@@ -7,16 +7,22 @@ import 'package:tiara/utilitarios/Constantes.dart';
 class Membro with ChangeNotifier {
   final String id;
   final String nomeArtistico;
-  final String description;
-  final double price;
+  final String nomeVerdadeiro;
+  final String posicao;
+  final String dataNascimento;
+  final String signo;
+  final double altura;
   final String imageUrl;
   bool isFavorite;
 
   Membro({
     required this.id,
     required this.nomeArtistico,
-    required this.description,
-    required this.price,
+    required this.nomeVerdadeiro,
+    required this.posicao,
+    required this.dataNascimento,
+    required this.signo,
+    required this.altura,
     required this.imageUrl,
     this.isFavorite = false,
   });
@@ -32,7 +38,7 @@ class Membro with ChangeNotifier {
 
       final response = await http.put(
         Uri.parse(
-          '${Constantes.userFavoritesUrl}/$userId/$id.json?auth=$token',
+          '${Constantes.usuarioFavoritoUrl}/$userId/$id.json?auth=$token',
         ),
         body: jsonEncode(isFavorite),
       );

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tiara/exceptions/http_exception.dart';
 import 'package:tiara/modelos/membro.dart';
-import 'package:tiara/modelos/product_list.dart';
+import 'package:tiara/modelos/membro_lista.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
-class ProductItem extends StatelessWidget {
-  final Membro product;
+class MembroItem extends StatelessWidget {
+  final Membro membro;
 
-  const ProductItem(
-    this.product, {
+  const MembroItem(
+    this.membro, {
     Key? key,
   }) : super(key: key);
 
@@ -18,9 +18,9 @@ class ProductItem extends StatelessWidget {
     final msg = ScaffoldMessenger.of(context);
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(product.imageUrl),
+        backgroundImage: NetworkImage(membro.imageUrl),
       ),
-      title: Text(product.nomeArtistico),
+      title: Text(membro.nomeArtistico),
       trailing: SizedBox(
         width: 100,
         child: Row(
@@ -30,8 +30,8 @@ class ProductItem extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               onPressed: () {
                 Navigator.of(context).pushNamed(
-                  AppRotas.productForm,
-                  arguments: product,
+                  AppRotas.membroForm,
+                  arguments: membro,
                 );
               },
             ),
@@ -58,10 +58,10 @@ class ProductItem extends StatelessWidget {
                 ).then((value) async {
                   if (value ?? false) {
                     try {
-                      await Provider.of<ProductList>(
+                      await Provider.of<MembroLista>(
                         context,
                         listen: false,
-                      ).removeProduct(product);
+                      ).removeProduct(membro);
                     } on HttpException catch (error) {
                       msg.showSnackBar(
                         SnackBar(

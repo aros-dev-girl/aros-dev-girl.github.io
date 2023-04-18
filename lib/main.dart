@@ -3,13 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:tiara/modelos/login.dart';
 import 'package:tiara/modelos/cart.dart';
 import 'package:tiara/modelos/order_list.dart';
-import 'package:tiara/modelos/product_list.dart';
+import 'package:tiara/modelos/membro_lista.dart';
 import 'package:tiara/paginas/login_ou_home_page.dart';
 import 'package:tiara/paginas/cart_page.dart';
 import 'package:tiara/paginas/orders_page.dart';
-import 'package:tiara/paginas/product_detail_page.dart';
-import 'package:tiara/paginas/product_form_page.dart';
-import 'package:tiara/paginas/products_page.dart';
+import 'package:tiara/paginas/membro_detalhe_page.dart';
+import 'package:tiara/paginas/membro_form_page.dart';
+import 'package:tiara/paginas/membros_page.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 import 'package:tiara/utilitarios/custom_route.dart';
 
@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => Login(),
         ),
-        ChangeNotifierProxyProvider<Login, ProductList>(
-          create: (_) => ProductList(),
+        ChangeNotifierProxyProvider<Login, MembroLista>(
+          create: (_) => MembroLista(),
           update: (ctx, auth, previous) {
-            return ProductList(
+            return MembroLista(
               auth.token ?? '',
               auth.userId ?? '',
               previous?.items ?? [],
@@ -68,11 +68,11 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           AppRotas.loginOuHome: (ctx) => const loginOuHomePage(),
-          AppRotas.productDetail: (ctx) => const ProductDetailPage(),
+          AppRotas.membroDetail: (ctx) => const MembroDetalhePage(),
           AppRotas.cart: (ctx) => const CartPage(),
           AppRotas.orders: (ctx) => const OrdersPage(),
-          AppRotas.products: (ctx) => const ProductsPage(),
-          AppRotas.productForm: (ctx) => const ProductFormPage(),
+          AppRotas.membros: (ctx) => const MembrosPage(),
+          AppRotas.membroForm: (ctx) => const MembroFormPage(),
         },
         debugShowCheckedModeBanner: false,
       ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tiara/modelos/membro.dart';
 
-class ProductDetailPage extends StatelessWidget {
-  const ProductDetailPage({Key? key}) : super(key: key);
+class MembroDetalhePage extends StatelessWidget {
+  const MembroDetalhePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final Membro product = ModalRoute.of(context)!.settings.arguments as Membro;
+    final Membro membro = ModalRoute.of(context)!.settings.arguments as Membro;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -14,14 +14,14 @@ class ProductDetailPage extends StatelessWidget {
             expandedHeight: 300,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(product.nomeArtistico),
+              title: Text(membro.nomeArtistico),
               background: Stack(
                 fit: StackFit.expand,
                 children: [
                   Hero(
-                    tag: product.id,
+                    tag: membro.id,
                     child: Image.network(
-                      product.imageUrl,
+                      membro.imageUrl,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -45,12 +45,12 @@ class ProductDetailPage extends StatelessWidget {
             delegate: SliverChildListDelegate(
               [
                 const SizedBox(height: 10),
-                Text(
-                  'R\$ ${product.price}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 20,
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  width: double.infinity,
+                  child: Text(
+                    membro.nomeVerdadeiro,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -58,8 +58,35 @@ class ProductDetailPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   width: double.infinity,
                   child: Text(
-                    product.description,
+                    membro.posicao,
                     textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  width: double.infinity,
+                  child: Text(
+                    membro.dataNascimento,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  width: double.infinity,
+                  child: Text(
+                    membro.signo,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  '${membro.altura}',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
                   ),
                 ),
               ],

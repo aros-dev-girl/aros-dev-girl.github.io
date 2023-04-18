@@ -16,7 +16,7 @@
 			dependencies = (
 			);
 			name = "Flutter Assemble";
-			productName = FLX;
+			membroName = FLX;
 		};
 /* End PBXAggregateTarget section */
 
@@ -171,9 +171,9 @@
 				33CC11202044C79F0003C045 /* PBXTargetDependency */,
 			);
 			name = Runner;
-			productName = Runner;
-			productReference = 33CC10ED2044A3C60003C045 /* tiara.app */;
-			productType = "com.apple.product-type.application";
+			membroName = Runner;
+			membroReference = 33CC10ED2044A3C60003C045 /* tiara.app */;
+			membroType = "com.apple.membro-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -210,7 +210,7 @@
 				Base,
 			);
 			mainGroup = 33CC10E42044A3C60003C045;
-			productRefGroup = 33CC10EE2044A3C60003C045 /* Products */;
+			membroRefGroup = 33CC10EE2044A3C60003C045 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tiara/componentes/app_drawer.dart';
-import 'package:tiara/componentes/product_item.dart';
-import 'package:tiara/modelos/product_list.dart';
+import 'package:tiara/componentes/menu_lateral.dart';
+import 'package:tiara/componentes/membro_item.dart';
+import 'package:tiara/modelos/membro_lista.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 
-class ProductsPage extends StatelessWidget {
-  const ProductsPage({Key? key}) : super(key: key);
+class MembrosPage extends StatelessWidget {
+  const MembrosPage({Key? key}) : super(key: key);
 
   Future<void> _refreshProducts(BuildContext context) {
-    return Provider.of<ProductList>(
+    return Provider.of<MembroLista>(
       context,
       listen: false,
     ).loadProducts();
@@ -17,29 +17,29 @@ class ProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductList products = Provider.of(context);
+    final MembroLista membros = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gerenciar Produtos'),
+        title: const Text('Gerenciar Membros'),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Navigator.of(context).pushNamed(AppRotas.productForm);
+              Navigator.of(context).pushNamed(AppRotas.membroForm);
             },
           )
         ],
       ),
-      drawer: const AppDrawer(),
+      drawer: const MenuLateral(),
       body: RefreshIndicator(
         onRefresh: () => _refreshProducts(context),
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: ListView.builder(
-            itemCount: products.itemsCount,
+            itemCount: membros.itemsCount,
             itemBuilder: (ctx, i) => Column(
               children: [
-                ProductItem(products.items[i]),
+                MembroItem(membros.items[i]),
                 const Divider(),
               ],
             ),

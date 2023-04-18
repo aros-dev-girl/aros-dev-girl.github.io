@@ -39,10 +39,10 @@ class OrderList with ChangeNotifier {
           id: orderId,
           date: DateTime.parse(orderData['date']),
           total: orderData['total'],
-          products: (orderData['products'] as List<dynamic>).map((item) {
+          membros: (orderData['membros'] as List<dynamic>).map((item) {
             return CartItem(
               id: item['id'],
-              productId: item['productId'],
+              membroId: item['membroId'],
               name: item['name'],
               quantity: item['quantity'],
               price: item['price'],
@@ -65,11 +65,11 @@ class OrderList with ChangeNotifier {
         {
           'total': cart.totalAmount,
           'date': date.toIso8601String(),
-          'products': cart.items.values
+          'membros': cart.items.values
               .map(
                 (cartItem) => {
                   'id': cartItem.id,
-                  'productId': cartItem.productId,
+                  'membroId': cartItem.membroId,
                   'name': cartItem.name,
                   'quantity': cartItem.quantity,
                   'price': cartItem.price,
@@ -87,7 +87,7 @@ class OrderList with ChangeNotifier {
         id: id,
         total: cart.totalAmount,
         date: date,
-        products: cart.items.values.toList(),
+        membros: cart.items.values.toList(),
       ),
     );
 

@@ -5,8 +5,8 @@ import 'package:tiara/paginas/orders_page.dart';
 import 'package:tiara/utilitarios/app_rotas.dart';
 import 'package:tiara/utilitarios/custom_route.dart';
 
-class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+class MenuLateral extends StatelessWidget {
+  const MenuLateral({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           AppBar(
-            title: const Text('Bem vindo Usuário!'),
+            title: const Text('Bem-vinda!'),
             automaticallyImplyLeading: false,
           ),
           const Divider(),
@@ -27,7 +27,7 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
-          const Divider(),
+          /*const Divider(),
           ListTile(
             leading: const Icon(Icons.payment),
             title: const Text('Pedidos'),
@@ -39,14 +39,14 @@ class AppDrawer extends StatelessWidget {
               //   CustomRoute(builder: (ctx) => const OrdersPage()),
               // );
             },
-          ),
+          ),*/
           const Divider(),
           ListTile(
             leading: const Icon(Icons.edit),
-            title: const Text('Gerenciar Produtos'),
+            title: const Text('Gerenciar Membros'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(
-                AppRotas.products,
+                AppRotas.membros,
               );
             },
           ),

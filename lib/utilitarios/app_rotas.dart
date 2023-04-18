@@ -1,8 +1,8 @@
 class AppRotas {
   static const loginOuHome = '/';
-  static const productDetail = '/product-detail';
+  static const membroDetail = '/membro-detail';
   static const cart = '/cart';
   static const orders = '/orders';
-  static const products = '/products';
-  static const productForm = '/product-form';
+  static const membros = '/membros';
+  static const membroForm = '/membro-form';
 }

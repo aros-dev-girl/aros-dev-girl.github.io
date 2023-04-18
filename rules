@@ -6,13 +6,13 @@
         ".read": "$uid === auth.uid",
       },
     },
-    "userFavorites": {
+    "usuarioFavorito": {
     	"$uid": {
       	".write": "$uid === auth.uid",
         ".read": "$uid === auth.uid",
       },
     },
-    "products": {
+    "membros": {
         ".write": "auth != null",
         ".read": "auth != null",
     }
