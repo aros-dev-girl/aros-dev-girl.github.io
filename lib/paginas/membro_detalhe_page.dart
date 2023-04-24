@@ -21,8 +21,9 @@ class MembroDetalhePage extends StatelessWidget {
                   Hero(
                     tag: membro.id,
                     child: Image.network(
-                      membro.imageUrl,
+                      membro.imageUrl_2,
                       fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
                     ),
                   ),
                   const DecoratedBox(

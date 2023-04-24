@@ -18,7 +18,8 @@ class _MembroFormPageState extends State<MembroFormPage> {
   final _alturaFocus = FocusNode();
 
   final _imageUrlFocus = FocusNode();
-  final _imageUrlController = TextEditingController();
+  final _imageUrl1Controller = TextEditingController();
+  final _imageUrl2Controller = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   final _formData = <String, Object>{};
@@ -47,9 +48,11 @@ class _MembroFormPageState extends State<MembroFormPage> {
         _formData['dataNascimento'] = membro.dataNascimento;
         _formData['signo'] = membro.signo;
         _formData['altura'] = membro.altura;
-        _formData['imageUrl'] = membro.imageUrl;
+        _formData['imageUrl_1'] = membro.imageUrl_1;
+        _formData['imageUrl_2'] = membro.imageUrl_2;
 
-        _imageUrlController.text = membro.imageUrl;
+        _imageUrl1Controller.text = membro.imageUrl_1;
+        _imageUrl2Controller.text = membro.imageUrl_2;
       }
     }
   }
@@ -276,14 +279,14 @@ class _MembroFormPageState extends State<MembroFormPage> {
                         Expanded(
                           child: TextFormField(
                             decoration: const InputDecoration(
-                                labelText: 'Url da Imagem'),
+                                labelText: 'Url da Imagem 1'),
                             keyboardType: TextInputType.url,
                             textInputAction: TextInputAction.done,
                             focusNode: _imageUrlFocus,
-                            controller: _imageUrlController,
+                            controller: _imageUrl1Controller,
                             onFieldSubmitted: (_) => _submitForm(),
                             onSaved: (imageUrl) =>
-                                _formData['imageUrl'] = imageUrl ?? '',
+                                _formData['imageUrl_1'] = imageUrl ?? '',
                             validator: (_imageUrl) {
                               final imageUrl = _imageUrl ?? '';
 
@@ -309,9 +312,54 @@ class _MembroFormPageState extends State<MembroFormPage> {
                             ),
                           ),
                           alignment: Alignment.center,
-                          child: _imageUrlController.text.isEmpty
-                              ? const Text('Informe a Url')
-                              : Image.network(_imageUrlController.text),
+                          child: _imageUrl1Controller.text.isEmpty
+                              ? const Text('Informe a Url 1')
+                              : Image.network(_imageUrl1Controller.text),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            decoration: const InputDecoration(
+                                labelText: 'Url da Imagem 2'),
+                            keyboardType: TextInputType.url,
+                            textInputAction: TextInputAction.done,
+                            focusNode: _imageUrlFocus,
+                            controller: _imageUrl1Controller,
+                            onFieldSubmitted: (_) => _submitForm(),
+                            onSaved: (imageUrl) =>
+                                _formData['imageUrl_2'] = imageUrl ?? '',
+                            validator: (_imageUrl) {
+                              final imageUrl = _imageUrl ?? '';
+
+                              if (!isValidImageUrl(imageUrl)) {
+                                return 'Informe uma Url válida!';
+                              }
+
+                              return null;
+                            },
+                          ),
+                        ),
+                        Container(
+                          height: 100,
+                          width: 100,
+                          margin: const EdgeInsets.only(
+                            top: 10,
+                            left: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 1,
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          child: _imageUrl2Controller.text.isEmpty
+                              ? const Text('Informe a Url 2')
+                              : Image.network(_imageUrl2Controller.text),
                         ),
                       ],
                     ),

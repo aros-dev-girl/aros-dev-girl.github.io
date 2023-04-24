@@ -12,7 +12,8 @@ class Membro with ChangeNotifier {
   final String dataNascimento;
   final String signo;
   final double altura;
-  final String imageUrl;
+  final String imageUrl_1;
+  final String imageUrl_2;
   bool isFavorite;
 
   Membro({
@@ -23,7 +24,8 @@ class Membro with ChangeNotifier {
     required this.dataNascimento,
     required this.signo,
     required this.altura,
-    required this.imageUrl,
+    required this.imageUrl_1,
+    required this.imageUrl_2,
     this.isFavorite = false,
   });
 

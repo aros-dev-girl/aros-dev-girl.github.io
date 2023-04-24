@@ -63,7 +63,7 @@ class MembroGridItem extends StatelessWidget {
             child: FadeInImage(
               placeholder:
                   const AssetImage('assets/images/membro-placeholder.png'),
-              image: NetworkImage(membro.imageUrl),
+              image: NetworkImage(membro.imageUrl_1),
               fit: BoxFit.cover,
             ),
           ),

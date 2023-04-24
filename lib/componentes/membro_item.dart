@@ -18,7 +18,7 @@ class MembroItem extends StatelessWidget {
     final msg = ScaffoldMessenger.of(context);
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(membro.imageUrl),
+        backgroundImage: NetworkImage(membro.imageUrl_1),
       ),
       title: Text(membro.nomeArtistico),
       trailing: SizedBox(

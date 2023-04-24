@@ -54,7 +54,8 @@ class MembroLista with ChangeNotifier {
           dataNascimento: membroData['dataNascimento'],
           signo: membroData['signo'],
           altura: membroData['altura'],
-          imageUrl: membroData['imageUrl'],
+          imageUrl_1: membroData['imageUrl_1'],
+          imageUrl_2: membroData['imageUrl_2'],
           isFavorite: isFavorite,
         ),
       );
@@ -66,15 +67,15 @@ class MembroLista with ChangeNotifier {
     bool hasId = data['id'] != null;
 
     final membro = Membro(
-      id: hasId ? data['id'] as String : Random().nextDouble().toString(),
-      nomeArtistico: data['nomeArtistico'] as String,
-      nomeVerdadeiro: data['nomeVerdadeiro'] as String,
-      posicao: data['posicao'] as String,
-      dataNascimento: data['dataNascimento'] as String,
-      signo: data['signo'] as String,
-      altura: data['altura'] as double,
-      imageUrl: data['imageUrl'] as String,
-    );
+        id: hasId ? data['id'] as String : Random().nextDouble().toString(),
+        nomeArtistico: data['nomeArtistico'] as String,
+        nomeVerdadeiro: data['nomeVerdadeiro'] as String,
+        posicao: data['posicao'] as String,
+        dataNascimento: data['dataNascimento'] as String,
+        signo: data['signo'] as String,
+        altura: data['altura'] as double,
+        imageUrl_1: data['imageUrl_1'] as String,
+        imageUrl_2: data['imageUrl_2'] as String);
 
     if (hasId) {
       return updateProduct(membro);
@@ -94,22 +95,23 @@ class MembroLista with ChangeNotifier {
           "dataNascimento": membro.dataNascimento,
           "signo": membro.signo,
           "altura": membro.altura,
-          "imageUrl": membro.imageUrl,
+          "imageUrl_1": membro.imageUrl_1,
+          "imageUrl_2": membro.imageUrl_2
         },
       ),
     );
 
     final id = jsonDecode(response.body)['nomeArtistico'];
     _items.add(Membro(
-      id: id,
-      nomeArtistico: membro.nomeArtistico,
-      nomeVerdadeiro: membro.nomeVerdadeiro,
-      posicao: membro.posicao,
-      dataNascimento: membro.dataNascimento,
-      signo: membro.signo,
-      altura: membro.altura,
-      imageUrl: membro.imageUrl,
-    ));
+        id: id,
+        nomeArtistico: membro.nomeArtistico,
+        nomeVerdadeiro: membro.nomeVerdadeiro,
+        posicao: membro.posicao,
+        dataNascimento: membro.dataNascimento,
+        signo: membro.signo,
+        altura: membro.altura,
+        imageUrl_1: membro.imageUrl_1,
+        imageUrl_2: membro.imageUrl_2));
     notifyListeners();
   }
 
@@ -127,7 +129,8 @@ class MembroLista with ChangeNotifier {
             "dataNascimento": membro.dataNascimento,
             "signo": membro.signo,
             "altura": membro.altura,
-            "imageUrl": membro.imageUrl,
+            "imageUrl_1": membro.imageUrl_1,
+            "imageUrl_2": membro.imageUrl_2
           },
         ),
       );
