@@ -36,7 +36,7 @@ class MembroGridItem extends StatelessWidget {
             membro.nomeArtistico,
             textAlign: TextAlign.center,
           ),
-          trailing: IconButton(
+          /*trailing: IconButton(
             icon: const Icon(Icons.shopping_cart),
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
@@ -55,7 +55,7 @@ class MembroGridItem extends StatelessWidget {
               );
               cart.addItem(membro);
             },
-          ),
+          ),*/
         ),
         child: GestureDetector(
           child: Hero(

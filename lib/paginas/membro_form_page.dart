@@ -17,7 +17,8 @@ class _MembroFormPageState extends State<MembroFormPage> {
   final _signoFocus = FocusNode();
   final _alturaFocus = FocusNode();
 
-  final _imageUrlFocus = FocusNode();
+  final _imageUrl1Focus = FocusNode();
+  final _imageUrl2Focus = FocusNode();
   final _imageUrl1Controller = TextEditingController();
   final _imageUrl2Controller = TextEditingController();
 
@@ -29,7 +30,8 @@ class _MembroFormPageState extends State<MembroFormPage> {
   @override
   void initState() {
     super.initState();
-    _imageUrlFocus.addListener(updateImage);
+    _imageUrl1Focus.addListener(updateImage);
+    _imageUrl2Focus.addListener(updateImage);
   }
 
   @override
@@ -66,8 +68,10 @@ class _MembroFormPageState extends State<MembroFormPage> {
     _signoFocus.dispose();
     _alturaFocus.dispose();
 
-    _imageUrlFocus.removeListener(updateImage);
-    _imageUrlFocus.dispose();
+    _imageUrl1Focus.removeListener(updateImage);
+    _imageUrl1Focus.dispose();
+    _imageUrl2Focus.removeListener(updateImage);
+    _imageUrl2Focus.dispose();
   }
 
   void updateImage() {
@@ -282,15 +286,15 @@ class _MembroFormPageState extends State<MembroFormPage> {
                                 labelText: 'Url da Imagem 1'),
                             keyboardType: TextInputType.url,
                             textInputAction: TextInputAction.done,
-                            focusNode: _imageUrlFocus,
+                            focusNode: _imageUrl1Focus,
                             controller: _imageUrl1Controller,
                             onFieldSubmitted: (_) => _submitForm(),
-                            onSaved: (imageUrl) =>
-                                _formData['imageUrl_1'] = imageUrl ?? '',
-                            validator: (_imageUrl) {
-                              final imageUrl = _imageUrl ?? '';
+                            onSaved: (imageUrl1) =>
+                                _formData['imageUrl_1'] = imageUrl1 ?? '',
+                            validator: (_imageUrl1) {
+                              final imageUrl1 = _imageUrl1 ?? '';
 
-                              if (!isValidImageUrl(imageUrl)) {
+                              if (!isValidImageUrl(imageUrl1)) {
                                 return 'Informe uma Url válida!';
                               }
 
@@ -327,15 +331,15 @@ class _MembroFormPageState extends State<MembroFormPage> {
                                 labelText: 'Url da Imagem 2'),
                             keyboardType: TextInputType.url,
                             textInputAction: TextInputAction.done,
-                            focusNode: _imageUrlFocus,
-                            controller: _imageUrl1Controller,
+                            focusNode: _imageUrl2Focus,
+                            controller: _imageUrl2Controller,
                             onFieldSubmitted: (_) => _submitForm(),
-                            onSaved: (imageUrl) =>
-                                _formData['imageUrl_2'] = imageUrl ?? '',
-                            validator: (_imageUrl) {
-                              final imageUrl = _imageUrl ?? '';
+                            onSaved: (imageUrl2) =>
+                                _formData['imageUrl_2'] = imageUrl2 ?? '',
+                            validator: (_imageUrl2) {
+                              final imageUrl2 = _imageUrl2 ?? '';
 
-                              if (!isValidImageUrl(imageUrl)) {
+                              if (!isValidImageUrl(imageUrl2)) {
                                 return 'Informe uma Url válida!';
                               }
 
