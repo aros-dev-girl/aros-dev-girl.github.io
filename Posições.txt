@@ -1,0 +1,14 @@
+DANÇARINAS:
+- Hyomin [L]
+- Elena [P]
+- Jiyeon [P]
+
+VOCALISTAS:
+- Elena [L]
+- Eunjung [P]
+- Chorong [P]
+
+RAPPERS:
+- Eunjung [L]
+- Chorong [A]
+- Eunji [P]
